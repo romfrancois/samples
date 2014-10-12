@@ -1,14 +1,28 @@
 import 'dart:io';
 
+/**
+ * The conway sequence is as follow:
+ *
+ * 1
+ * 11
+ * 21
+ * 1211
+ * 111221
+ * ...
+ */
+
+/* Wrapup for debugging purpose */
 debug(String msg) {
     stderr.writeln(msg);
 }
 
 void main() {
-  int originalNumber = 5; //int.parse(stdin.readLineSync());
+  /* Starting number can be anything */
+  final int originalNumber = 1; //int.parse(stdin.readLineSync());
   debug('Original #: $originalNumber');
 
-  int lineToDisplay = 10; //int.parse(stdin.readLineSync());
+  /* Line to display */
+  final int lineToDisplay = 5; //int.parse(stdin.readLineSync());
   debug('LineToDisplay: $lineToDisplay');
 
   Map<int, List<int>> results = new Map();
@@ -22,49 +36,49 @@ void main() {
   int previousNumber = -1;
 
   for (int i = 1; i < lineToDisplay; i++) {
-    debug("\nCurrent line: $i");
+//    debug("\nCurrent line: $i");
 
     List<int> previousLine = results[i - 1];
     int previousLineSize = previousLine.length;
-    debug('previousLine: $previousLine | size: ${previousLineSize}');
+//    debug('previousLine: $previousLine | size: ${previousLineSize}');
 
     if (previousLine != null) {
-      debug('cpt: $cpt');
+//      debug('cpt: $cpt');
 
       previousNumber = previousLine[0];
 
       List<int> currentLine = new List();
       for (int j = 1; j < previousLine.length; j++) {
         int currentNumber = previousLine[j];
-        debug('previousNumber: $previousNumber | currentNumber: $currentNumber');
+//        debug('previousNumber: $previousNumber | currentNumber: $currentNumber');
 
         if (previousNumber == currentNumber) {
-          debug('Same number');
+//          debug('Same number');
 
           cpt++;
           previousNumber = currentNumber;
         }
         else {
-          debug('Different number');
+//          debug('Different number');
 
-          debug('\tAdding cpt: $cpt');
+//          debug('\tAdding cpt: $cpt');
           currentLine.add(cpt);
-          debug('\tAdding number: $previousNumber');
+//          debug('\tAdding number: $previousNumber');
           currentLine.add(previousNumber);
 
-          debug('Line status: $currentLine @ $i');
+//          debug('Line status: $currentLine @ $i');
 
           cpt = 1;
           previousNumber = currentNumber;
         }
       }
 
-      debug('Adding cpt: $cpt');
+//      debug('Adding cpt: $cpt');
       currentLine.add(cpt);
-      debug('Adding number...');
+//      debug('Adding number...');
       currentLine.add(previousNumber);
 
-      debug('Line to be added: $currentLine @ $i');
+//      debug('Line to be added: $currentLine @ $i');
       results[i] = currentLine;
 
       cpt = 1;

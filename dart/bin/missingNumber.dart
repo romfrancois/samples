@@ -1,5 +1,10 @@
 import 'dart:io';
 
+/**
+ * Given a list of numbers output the one missing.
+ */
+
+/* Wrapup for debugging purpose */
 debug(String msg) {
     stderr.writeln(msg);
 }
@@ -56,6 +61,7 @@ int binarySearch(List<int> numbers, int length) {
 void main() {
   List<int> numbers = [0, 1, 2, 3, 5];
 
+  debug('numbers: $numbers');
   debug('basicImpl: ${basicImpl(numbers)}');
   debug('sumDiff: ${sumDiff(numbers, 5)}');
   debug('binarySearch: ${binarySearch(numbers, 5)}');

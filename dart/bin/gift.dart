@@ -1,26 +1,38 @@
 import 'dart:io';
 
+/**
+ * Given a number of participants and how much they can afford for a gift,
+ * output a fair sum for each one.
+ */
+
+/* Wrapup for debugging purpose */
 debug(String msg) {
     stderr.writeln(msg);
 }
 
+var BUDGETS = [
+  100
+  ,1
+  ,60
+];
+
 void main() {
-  int numberOfParticipants = int.parse(stdin.readLineSync());
+  int numberOfParticipants = 3; //int.parse(stdin.readLineSync());
   debug('numberOfParticipants: $numberOfParticipants');
 
-  int price = int.parse(stdin.readLineSync());
+  int price = 100; //int.parse(stdin.readLineSync());
   debug('price: $price');
 
   List<int> budgets = new List();
 
-  int currentBudget = int.parse(stdin.readLineSync());
+  int currentBudget = BUDGETS[0]; //int.parse(stdin.readLineSync());
   budgets.add(currentBudget);
   int highest = currentBudget;
   int lowest = currentBudget;
   int sumBudgets = currentBudget;
 
   for (int i = 0; i < numberOfParticipants - 1; i++) {
-    currentBudget = int.parse(stdin.readLineSync());
+    currentBudget = BUDGETS[i+1]; //int.parse(stdin.readLineSync());
     budgets.add(currentBudget);
     sumBudgets += currentBudget;
 

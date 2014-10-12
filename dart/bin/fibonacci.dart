@@ -1,5 +1,10 @@
 import 'dart:io';
 
+/**
+ * Several ways to compute the very well known Fib sequence.
+ */
+
+/* Wrapup for debugging purpose */
 debug(String msg) {
     stderr.writeln(msg);
 }

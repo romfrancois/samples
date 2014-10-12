@@ -1,5 +1,11 @@
 import 'dart:io';
 
+/**
+ * Given a sequence, find out the subset of continuous positive numbers and
+ * remove it from the initial input.
+ */
+
+/* Wrapup for debugging purpose */
 debug(String msg) {
     stderr.writeln(msg);
 }
@@ -55,7 +61,7 @@ String removeDigit(String number, int digitIndex) {
 
 void main() {
   final String number = '24635';
-  final int digit = 3;
+  final int digit = 2;
 
   debug('leastNumber: ${leastNumber(number, digit)}');
 }
